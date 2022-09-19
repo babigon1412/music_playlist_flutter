@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:music_playlist_flutter/pages/playlist_page.dart';
 
 void main() {
@@ -11,7 +10,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp(
       title: 'Music Playlist',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(

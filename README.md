@@ -1,16 +1,8 @@
-# music_playlist_flutter
 
-A new Flutter project.
+There are only two pages in this project.
 
-## Getting Started
+The first page is the playlist page, this page will shows your playlist songs, you can scroll up and down to view the list. And when you click to the song a small player will pop up down below. In that player there are two buttons to pause the song, play the song or close it completely. And if you click on that player it will bring you to the main player page which is the second page.
 
-This project is a starting point for a Flutter application.
+The second page is the main player that not only play or pause the song like the small player before, but also skip to the next songs, go back to the previous songs and drag the slide bar too. And if you want to go back to the playlist page, you can do that by pressing the button on the top left.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Thank you.

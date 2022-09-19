@@ -20,7 +20,6 @@ class _PlaylistPage extends State<PlaylistPage> {
   bool isPlaying = true;
   bool isShowing = true;
   int playlistLength = getAmountSongs();
-  Color textColor = Colors.white;
 
   @override
   void initState() {
@@ -113,22 +112,33 @@ class _PlaylistPage extends State<PlaylistPage> {
                   height: Dimensions.ten * 35,
                   child: ListView.builder(
                     padding: EdgeInsets.zero,
-                    itemCount: 15,
+                    itemCount: songs.length,
                     itemBuilder: (BuildContext context, int index) {
                       return Card(
                         color: Colors.grey[900],
                         elevation: 0,
                         child: ListTile(
                           visualDensity: const VisualDensity(vertical: -4),
-                          leading: Padding(
-                            padding: EdgeInsets.only(top: Dimensions.ten),
-                            child: SmallText(text: '${index + 1}'),
+                          leading: SizedBox(
+                            height: Dimensions.ten * 4.25,
+                            width: Dimensions.ten * 4,
+                            child: ClipRRect(
+                              borderRadius:
+                                  BorderRadius.circular(Dimensions.ten * 0.5),
+                              child: Image.asset(
+                                songs[index].metas.image!.path,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
                           ),
                           title: BigText(
                             text: songs[index].metas.title!,
                             size: Dimensions.ten * 1.6,
                           ),
-                          subtitle: SmallText(text: songs[index].metas.artist!),
+                          subtitle: SmallText(
+                            text: songs[index].metas.artist!,
+                            color: Colors.white60,
+                          ),
                           trailing:
                               const Icon(Icons.more_vert, color: Colors.white),
                           onTap: () async {
