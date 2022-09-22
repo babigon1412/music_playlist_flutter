@@ -41,12 +41,14 @@ class _PositionSeekWidgetState extends State<PositionSeekWidget> {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
+      children: [
+        // Start time
         Text(
           durationToString(widget.currentPosition),
           style: const TextStyle(color: Colors.white70),
         ),
         SizedBox(width: Dimensions.ten * 1.5),
+        // Slider bar
         Expanded(
           child: NeumorphicSlider(
             height: Dimensions.ten * 0.6,
@@ -75,6 +77,7 @@ class _PositionSeekWidgetState extends State<PositionSeekWidget> {
           ),
         ),
         SizedBox(width: Dimensions.ten * 1.5),
+        // End time
         Text(
           durationToString(widget.duration),
           style: const TextStyle(color: Colors.white70),
@@ -84,6 +87,7 @@ class _PositionSeekWidgetState extends State<PositionSeekWidget> {
   }
 }
 
+// Song's time return two digits of minutes and seconds
 String durationToString(Duration duration) {
   String twoDigits(int n) {
     if (n >= 10) return '$n';

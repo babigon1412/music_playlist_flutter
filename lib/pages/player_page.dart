@@ -1,11 +1,11 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
-import 'package:flutter/material.dart';
 import 'package:music_playlist_flutter/models/songs.dart';
 import 'package:music_playlist_flutter/utils/dimensions.dart';
 import 'package:music_playlist_flutter/widgets/bigtext.dart';
 import 'package:music_playlist_flutter/widgets/smalltext.dart';
 import 'package:palette_generator/palette_generator.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:flutter/material.dart';
 
 import '../seekbar/position_seek_slider.dart';
 
@@ -68,6 +68,7 @@ class _PlayerPageState extends State<PlayerPage> {
         alignment: Alignment.center,
         children: [
           FutureBuilder<PaletteGenerator>(
+            // Get color from the cover image
             future: getImageColors(widget.player),
             builder: ((context, snapshot) => Container(
                   color: snapshot.data?.mutedColor?.color,
@@ -77,6 +78,7 @@ class _PlayerPageState extends State<PlayerPage> {
             alignment: Alignment.bottomCenter,
             child: Container(
               decoration: BoxDecoration(
+                // shading color
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
@@ -95,6 +97,7 @@ class _PlayerPageState extends State<PlayerPage> {
               // color: Colors.white,
               child: Column(
                 children: [
+                  // Song's name
                   BigText(
                     text: widget.player.getCurrentAudioTitle,
                     size: Dimensions.ten * 3,
@@ -102,11 +105,13 @@ class _PlayerPageState extends State<PlayerPage> {
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: Dimensions.ten * 2),
+                  // Artist's name
                   SmallText(
                     text: widget.player.getCurrentAudioArtist,
                     size: Dimensions.ten * 1.6,
                   ),
                   SizedBox(height: Dimensions.ten * 5),
+                  // Image
                   Container(
                     height: Dimensions.ten * 25,
                     width: Dimensions.ten * 25,
@@ -126,6 +131,7 @@ class _PlayerPageState extends State<PlayerPage> {
                     ),
                   ),
                   SizedBox(height: Dimensions.ten * 8),
+                  // Slider bar and times
                   widget.player.builderRealtimePlayingInfos(
                       builder: (context, RealtimePlayingInfos? infos) {
                     if (infos == null) {
@@ -149,6 +155,7 @@ class _PlayerPageState extends State<PlayerPage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
+                        // Previous button
                         IconButton(
                           onPressed: () {
                             widget.player.previous();
@@ -159,6 +166,7 @@ class _PlayerPageState extends State<PlayerPage> {
                             color: Colors.white70,
                           ),
                         ),
+                        // Play and pause button
                         IconButton(
                           onPressed: () {
                             widget.player.playOrPause();
@@ -175,6 +183,7 @@ class _PlayerPageState extends State<PlayerPage> {
                                   color: Colors.white70,
                                 ),
                         ),
+                        // Next button
                         IconButton(
                           onPressed: () {
                             widget.player.next();
